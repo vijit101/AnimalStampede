@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AnimalSpawner : MonoBehaviour
 {
-    float Xbound = 22;
-    float Zspawn = 22;
+    float Xbound = 21;
+    float Zspawn = -18;
     public GameObject[] AnimalArray;
     int startDelay = 2;
     int SpawnInterval = 2;
@@ -26,7 +26,10 @@ public class AnimalSpawner : MonoBehaviour
     void SpawnRandomAnimal()
     {
         int randomAnimalIndex = Random.Range(0, AnimalArray.Length - 1);
+        
 
         Vector3 SpawnPosition = new Vector3(Random.Range(-Xbound, Xbound), 0, Zspawn);
+
+        Instantiate(AnimalArray[randomAnimalIndex], SpawnPosition, AnimalArray[randomAnimalIndex].transform.rotation);
     }
 }

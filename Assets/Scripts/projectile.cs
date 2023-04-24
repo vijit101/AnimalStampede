@@ -6,6 +6,17 @@ public class projectile : MonoBehaviour
 {
     float Speed = 40;
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Animal")
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+       
+    }
+
+
     // Update is called once per frame
     void Update()
     {
